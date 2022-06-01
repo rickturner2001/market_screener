@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/classes/database/Database.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/classes/database/SP500Database.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/classes/indicators/MiscIndicators.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/classes/market_analysis/MarketBreadthAnalysis.py" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/classes/market_analysis/SP500Analysis.py" dialect="GenericSQL" />
+  </component>
+</project>

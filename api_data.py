@@ -1,4 +1,5 @@
 import json
+import time
 
 import pandas as pd
 from classes.market_analysis.SP500Analysis import SP500Analysis
@@ -35,7 +36,7 @@ def get_entries_from_indicators(df: pd.DataFrame) -> pd.DataFrame:
               | (df["Signal_RSI_STOCH_MACD"]) | df['Ichimoku_strategy']]
 
 
-def parse_entries(entries):
+def parse_entries(entries: pd.DataFrame):
     data = {}
     if len(entries) == 0:
         return False
@@ -194,9 +195,9 @@ def optimize_api_request():
     year, month, day, hour, minute, _, _, _, _ = current_datetime.timetuple()
     req_year, req_month, req_day, req_hour, req_minute, _, _, _, _ = dtime.timetuple()
     is_weekend = True if current_datetime.weekday() in [5, 6] else False
-    is_afterhours = True if hour >= 12 or (hour < 9) else False
+    is_afterhours = True if hour >= 13 or (hour < 9) else False
     if is_weekend or is_afterhours:
-        if [req_year, req_month, req_day] == [year, month, day]:
+        if [req_year, req_month, req_day] == [year, month, day] or 1 == 1:
             _, data = parse_last_request(sp500_database, True)
             return json.loads(data)
         else:

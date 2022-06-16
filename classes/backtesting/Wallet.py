@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import Union
-from classes.backtesting.Position import Position
+from classes.tests.Position import Position
 
 
 @dataclass
@@ -18,7 +18,7 @@ class Wallet:
             raise InvalidOperation(funds, "Invalid amount to withdraw")
 
     def add_position(self, position: Position):
-        if position.price <= self.balance:
+        if (position.price * position.quantity) <= self.balance:
             self.positions.append(position)
             self.balance -= position.price
         else:

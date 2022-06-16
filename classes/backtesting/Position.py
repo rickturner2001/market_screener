@@ -12,11 +12,10 @@ class Position:
     index: bool = False
 
     def __post_init__(self):
-
-        if self.price < 0:
+        if self.price <= 0:
             raise PositionValueError(self.price, "Price must be > 0")
 
-        if self.leverage == 20 or self.leverage == 10 and not self.index:
+        if self.leverage == 20 or self.leverage == 10 and (not self.index):
             raise LeverageError(self.leverage, "Invalid Leverage for non index")
 
 
